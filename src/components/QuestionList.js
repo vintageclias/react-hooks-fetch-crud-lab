@@ -1,10 +1,15 @@
-import React from "react";
 
-function QuestionList() {
+import React, { useEffect, useState } from "react";
+import QuestionItem from "./QuestionItem";
+
+function QuestionList({questions,setQuestions}) {
+  
   return (
     <section>
       <h1>Quiz Questions</h1>
-      <ul>{/* display QuestionItem components here after fetching */}</ul>
+      <ul>{questions.map(question=>{
+        return <QuestionItem key={question.id} question={question} setQuestions={setQuestions}/>
+      })}</ul>
     </section>
   );
 }
